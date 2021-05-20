@@ -10,10 +10,15 @@ class Motherbox(environment_dump):
     IE:
 
     {
-        "vm":["quantity":1, "depends_on":"vnet"]
+        resource_group: "name",
+        "vm":["quantity":1, "depends_on": ["vnet", "nsg"]],
+        "vnet": {cidr_range: <ip range>, }
+        disks: {"opt":<size>, "tmp":500, "data":250}
+
     }
     etc. etc. 
 
     We can have top level elements correspond to resources. This will make it 
     easier to determine each resource's specifications. 
     """
+
